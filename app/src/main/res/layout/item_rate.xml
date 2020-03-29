@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="rate"
+            type="com.insearching.revolutrate.ui.Rate" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="4dp"
+        android:background="@color/main_background">
+
+        <ImageView
+            android:id="@+id/currency_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:src="@{rate.logo}"
+            tools:src="@drawable/ic_usa" />
+
+        <TextView
+            android:id="@+id/currency_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{rate.title}"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toEndOf="@+id/currency_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="USD" />
+
+        <TextView
+            android:id="@+id/currency_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{rate.description}"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/currency_title"
+            app:layout_constraintTop_toBottomOf="@+id/currency_title"
+            app:layout_constraintVertical_bias="1.0"
+            tools:text="US dollar" />
+
+        <com.blackcat.currencyedittext.CurrencyEditText
+            android:id="@+id/currency_amount"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:enabled="@{rate.enabled}"
+            android:imeOptions="actionDone"
+            android:inputType="numberDecimal"
+            android:maxLength="7"
+            android:textColor="@color/currency_text_color"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:allow_negative_values="false"
+            app:decimal_digits="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/currency_description"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

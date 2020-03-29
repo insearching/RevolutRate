@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">RevolutRate</string>
+    <string name="activity_rates_title">Rates</string>
+</resources>
